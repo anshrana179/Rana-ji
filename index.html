@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ansh Rana Music Downloader</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #1e1e1e;
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #00ffcc;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 70%;
+      max-width: 500px;
+      margin-top: 20px;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #00ffcc;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00ddb0;
+    }
+    .footer {
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎵 Ansh Rana Music Downloader</h1>
+  <p>Paste the direct music URL (.mp3) below to download:</p>
+
+  <input type="text" id="musicUrl" placeholder="Enter direct .mp3 URL here">
+  <br>
+  <button onclick="downloadMusic()">Download</button>
+
+  <div class="footer">
+    &copy; 2025 Ansh Rana | Simple Music Downloader
+  </div>
+
+  <script>
+    function downloadMusic() {
+      const url = document.getElementById('musicUrl').value;
+      if (!url) {
+        alert("Please enter a valid music URL.");
+        return;
+      }
+      const fileName = url.substring(url.lastIndexOf("/") + 1);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  </script>
+
+</body>
+</html>
